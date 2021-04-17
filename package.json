@@ -1,0 +1,16 @@
+{
+  "name": "steam-current-game",
+  "version": "1.0.0",
+  "description": "Display current game being played (via Steam)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordan Duabe",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "typescript": "^4.2.4",
+    "@vercel/node": "^1.9.1"
+  }
+}
