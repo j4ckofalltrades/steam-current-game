@@ -21,11 +21,20 @@ const card = (summary: PlayerSummary) => {
     </style>
     <foreignObject height="100%" width="100%">
       <div class="container" xmlns="http://www.w3.org/1999/xhtml">
-        <img src="${summary.avatar}" height="64px" width="64px" alt="avatar"/>
+        <img src="data:image/jpeg;base64, ${summary.avatar}" height="64px" width="64px" alt="avatar"/>
         <div class="summary" xmlns="http://www.w3.org/1999/xhtml">
-          ${summary.ign ? `<div xmlns="http://www.w3.org/1999/xhtml"><b>${summary.ign}</b></div>` : `<div>Gamer</div>`}
-          ${summary.currentGame ? `<div xmlns="http://www.w3.org/1999/xhtml">Playing <b>${summary.currentGame}</b></div>`
-            : `<div xmlns="http://www.w3.org/1999/xhtml">Not in-game</div>`}
+          ${summary.ign
+              ? `<div xmlns="http://www.w3.org/1999/xhtml">
+                   <b>${summary.ign}</b>
+                 </div>`
+              : `<div>Gamer</div>`
+          }
+          ${summary.currentGame
+              ? `<div xmlns="http://www.w3.org/1999/xhtml">
+                   Playing <b>${summary.currentGame}</b>
+                 </div>`
+              : `<div xmlns="http://www.w3.org/1999/xhtml">Not in-game</div>`
+          }
         </div>
       </div>
     </foreignObject>

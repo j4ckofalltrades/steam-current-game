@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/j4ckofalltrades/steam-current-game",
   "author": "Jordan Duabe",
   "dependencies": {
     "axios": "^0.21.1",

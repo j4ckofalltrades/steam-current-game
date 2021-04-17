@@ -40,8 +40,8 @@ const playerSummary = async (steamId: SteamId): Promise<PlayerSummary> => {
     currentGame: '',
   }
 
-  await axios.get(
-    'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/',
+  await axios
+    .get('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/',
     {
       params: {
         key: process.env.STEAM_WEB_API_KEY,
@@ -67,6 +67,17 @@ const playerSummary = async (steamId: SteamId): Promise<PlayerSummary> => {
         }
       }
     })
+
+  // use data URLs for images
+  if (playerSummary.avatar !== '') {
+    await axios
+      .get(playerSummary.avatar, {
+        responseType: 'arraybuffer'
+      })
+      .then(response => {
+        playerSummary.avatar = Buffer.from(response.data, 'binary').toString('base64')
+      })
+  }
 
   return playerSummary
 }
