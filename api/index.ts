@@ -1,4 +1,3 @@
-import playerSummary from "../src/components/playerSummary";
 import {VercelRequest, VercelResponse} from '@vercel/node'
 import card from "../src/components/card";
 
@@ -16,5 +15,5 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 
   return response
     .status(200)
-    .send(card(await playerSummary(steamid)))
+    .send(await card((steamid)))
 }

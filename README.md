@@ -15,7 +15,7 @@ The generated card (svg) includes your avatar, in-game name, and the title of th
 
 ## Running locally
 
-**This requires a Steam Web API Key, you can obtain one [here](https://steamcommunity.com/dev).**
+**This requires a Steam Web API Key, you can get one at https://steamcommunity.com/dev/apikey**
 
 Test locally with the [Vercel CLI](https://vercel.com/cli).
 
@@ -29,6 +29,6 @@ $ vercel dev
 
 ## Deploy your own instance on Vercel
 
-**This requires a Steam Web API Key, you can obtain one [here](https://steamcommunity.com/dev).**
+**This requires a Steam Web API Key, you can get one at https://steamcommunity.com/dev/apikey**
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fj4ckofalltrades%2Fsteam-current-game&env=STEAM_WEB_API_KEY&envDescription=A%20Steam%20Web%20API%20key%20is%20required&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev)

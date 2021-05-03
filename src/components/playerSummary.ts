@@ -2,13 +2,13 @@ import axios from "axios";
 
 export type SteamId = string | string[]
 
-export type PlayerSummary = {
-  avatar: string,
-  ign: string,
-  currentGame: string,
+type SteamPlayerSummaries = {
+  response: {
+    players: SteamPlayerSummary[],
+  }
 }
 
-type SteamPlayerSummary = {
+export type SteamPlayerSummary = {
   // public data
   steamid: string,
   personaname: string,
@@ -33,53 +33,31 @@ type SteamPlayerSummary = {
   locstatecode?: string,
 }
 
-const playerSummary = async (steamId: SteamId): Promise<PlayerSummary> => {
-  const playerSummary = {
-    avatar: '',
-    ign: '',
-    currentGame: '',
-  }
-
+const playerSummary = async (steamId: SteamId): Promise<SteamPlayerSummary> =>
   await axios
     .get('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/',
-    {
-      params: {
-        key: process.env.STEAM_WEB_API_KEY,
-        steamids: Array.isArray(steamId) ? steamId[0] : steamId,
-      }
-    })
+      {
+        params: {
+          key: process.env.STEAM_WEB_API_KEY,
+          steamids: Array.isArray(steamId) ? steamId[0] : steamId,
+        }
+      })
     .then(response => {
-      const playerSummaryJson: SteamPlayerSummary = response.data['response']['players'][0]
-      if (playerSummaryJson) {
-        const ign = playerSummaryJson.personaname
-        if (ign) {
-          playerSummary.ign = ign
-        }
-
-        const avatar = playerSummaryJson.avatarmedium
-        if (avatar) {
-          playerSummary.avatar = avatar
-        }
-
-        const currentGame = playerSummaryJson.gameextrainfo
-        if (currentGame) {
-          playerSummary.currentGame = currentGame
-        }
+      if (isPlayerSummaries(response.data)) {
+        const playerSummaries = response.data
+        return playerSummaries.response.players[0]
       }
     })
+    .catch(e => {
+      throw e
+    })
 
-  // use data URLs for images
-  if (playerSummary.avatar !== '') {
-    await axios
-      .get(playerSummary.avatar, {
-        responseType: 'arraybuffer'
-      })
-      .then(response => {
-        playerSummary.avatar = Buffer.from(response.data, 'binary').toString('base64')
-      })
+const isPlayerSummaries = (data: unknown): data is SteamPlayerSummaries => {
+  if (!data) {
+    return false
   }
 
-  return playerSummary
+  return "response" in (data as SteamPlayerSummaries)
 }
 
 export default playerSummary
