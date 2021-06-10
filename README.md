@@ -4,14 +4,14 @@ Display your current game on your website, blog, or Github README.
 
 The generated card (svg) includes your avatar, in-game name, and the title of the current game (if in-game). 
 
-![](assets/preview.png)
+![Steam Current Game](https://steam-current-game.vercel.app/api/?steamids=76561198311570174)
 
 ## Usage
 
 1. Get your Steam ID (in Home > Account)
 2. Set `Game Details` to `Public` on your Steam profile (required for retrieving current game)
 3. Reference the following link in your markdown or HTML
-`https://steam-current-game.vercel.app/api/?steamid=<steamid>` replacing `<steamid>` with your own.
+`https://steam-current-game.vercel.app/api/?steamids=<steamid>` replacing `<steamid>` with your own.
 
 ## Running locally
 
