@@ -1,7 +1,6 @@
 import axios from "axios";
-import { ISteamUser, PlayerSummary } from "@j4ckofalltrades/steam-webapi-ts"
+import { ISteamUser, PlayerSummary, SteamId } from "@j4ckofalltrades/steam-webapi-ts"
 
-type SteamId = string
 type CardDetails = Pick<PlayerSummary, "avatarmedium" | "personaname" | "gameextrainfo">
 
 const playerSummary = async (steamids: SteamId[]): Promise<PlayerSummary> => {
