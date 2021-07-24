@@ -1,11 +1,11 @@
 import axios from "axios";
-import { ISteamUser, PlayerSummary, SteamId } from "@j4ckofalltrades/steam-webapi-ts"
+import { ISteamUserWrapper, PlayerSummary, SteamId } from "@j4ckofalltrades/steam-webapi-ts"
 
 type CardDetails = Pick<PlayerSummary, "avatarmedium" | "personaname" | "gameextrainfo">
 
 const playerSummary = async (steamids: SteamId[]): Promise<PlayerSummary> => {
   const { response: { players } } =
-    await new ISteamUser(process.env.STEAM_WEB_API_KEY)
+    await new ISteamUserWrapper(process.env.STEAM_WEB_API_KEY)
       .getPlayerSummaries(steamids)
   return players[0]
 }

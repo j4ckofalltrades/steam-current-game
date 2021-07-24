@@ -8,10 +8,10 @@
   "repository": "https://github.com/j4ckofalltrades/steam-current-game",
   "author": "Jordan Duabe",
   "dependencies": {
+    "@j4ckofalltrades/steam-webapi-ts": "^1.0.0",
+    "@vercel/node": "^1.9.1",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "@j4ckofalltrades/steam-webapi-ts": "^0.1.2",
-    "typescript": "^4.3.5",
-    "@vercel/node": "^1.9.1"
+    "typescript": "^4.3.5"
   }
 }
