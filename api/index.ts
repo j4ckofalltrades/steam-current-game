@@ -1,9 +1,10 @@
-import {VercelRequest, VercelResponse} from '@vercel/node'
-import currentGameCard, { errorCard } from "../src/currentGameCard";
+import {VercelRequest, VercelResponse} from "@vercel/node"
+import currentGameCard, { errorCard } from "../src/currentGameCard"
+import { config } from "dotenv"
 
-require('dotenv').config()
+config()
 
-export default async (request: VercelRequest, response: VercelResponse) => {
+export default async (request: VercelRequest, response: VercelResponse): Promise<VercelResponse> => {
   const { steamids } = request.query
   if (!steamids) {
     return response
@@ -11,7 +12,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
   }
 
   response.setHeader("Content-Type", "image/svg+xml")
-  response.setHeader("Cache-Control", "public, max-age=600");
+  response.setHeader("Cache-Control", "public, max-age=600")
 
   try {
     const card = await currentGameCard(Array.isArray(steamids) ? steamids : [steamids])

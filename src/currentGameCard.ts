@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 import { ISteamUserWrapper, PlayerSummary, SteamId } from "@j4ckofalltrades/steam-webapi-ts"
 
 type CardDetails = Pick<PlayerSummary, "avatarmedium" | "personaname" | "gameextrainfo">
@@ -22,11 +22,12 @@ const currentGameDetails = async (steamids: SteamId[]): Promise<CardDetails> => 
 const toBase64 = async (imageUrl: string): Promise<string> =>
   axios
     .get(imageUrl, {
-      responseType: 'arraybuffer'
+      responseType: "arraybuffer"
     })
     .then(response => {
-      return Buffer.from(response.data, 'binary').toString('base64')
+      return Buffer.from(response.data, "binary").toString("base64")
     })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .catch(_ => {
       return ""
     })
@@ -36,13 +37,13 @@ const render = (details: CardDetails): string => {
     `<div xmlns="http://www.w3.org/1999/xhtml">
        <b>${ details.personaname }</b>
      </div>`
-    : `<div>Gamer</div>`
+    : "<div>Gamer</div>"
   }`
   const currentGame = `${ details.gameextrainfo ?
     `<div xmlns="http://www.w3.org/1999/xhtml">
        Playing <b>${ details.gameextrainfo }</b>
     </div>`
-    : `<div xmlns="http://www.w3.org/1999/xhtml">Not in-game</div>`
+    : "<div xmlns=\"http://www.w3.org/1999/xhtml\">Not in-game</div>"
   }`
 
   return `
@@ -98,6 +99,6 @@ export const errorCard =
   </svg>
   `
 
-const currentGameCard = async (steamids: SteamId[]) => render(await currentGameDetails(steamids))
+const currentGameCard = async (steamids: SteamId[]): Promise<string> => render(await currentGameDetails(steamids))
 
 export default currentGameCard

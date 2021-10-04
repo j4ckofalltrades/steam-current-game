@@ -1,4 +1,4 @@
-# Current game (on Steam) :video_game:
+# :video_game: Current game (on Steam)
 
 Display your current game on your website, blog, or Github README.  
 
