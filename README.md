@@ -1,6 +1,6 @@
 # :video_game: Current game (on Steam)
 
-Display your current game on your website, blog, or Github README.  
+Display your current game on your website, blog, or GitHub README.  
 
 The generated card (svg) includes your avatar, in-game name, and the title of the current game (if in-game). 
 
@@ -22,10 +22,7 @@ Test locally with the [Vercel CLI](https://vercel.com/cli).
 The project relies on the `STEAM_WEB_API_KEY`, make sure that it is available in the current environment.
 One way to do this is by defining it in a `.env` file (containing `STEAM_WEB_API_KEY=<api_key>`).
 
-```shell
-$ npm i vercel
-$ vercel dev
-```
+`npx vercel dev`
 
 ## Deploy your own instance on Vercel
 
