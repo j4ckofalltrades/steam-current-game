@@ -9,19 +9,21 @@
   },
   "repository": "https://github.com/j4ckofalltrades/steam-current-game",
   "author": "Jordan Duabe",
+  "dependencies": {
+    "@j4ckofalltrades/steam-webapi-ts": "^1.2.1",
+    "axios": "^1.6.7"
+  },
   "devDependencies": {
-    "@j4ckofalltrades/steam-webapi-ts": "^1.0.4",
-    "@typescript-eslint/eslint-plugin": "^5.34.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "@vercel/node": "^2.5.9",
-    "axios": "^1.6.0",
-    "dotenv": "^16.0.2",
-    "eslint": "^8.22.0",
-    "eslint-config-prettier": "^8.5.0",
-    "lint-staged": "^13.0.3",
-    "prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@vercel/node": "^3.0.22",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
     "typescript": "^5.1.6",
-    "vercel": "^31.0.1"
+    "vercel": "^33.5.5"
   },
   "eslintConfig": {
     "env": {
