@@ -11,7 +11,7 @@
   "author": "Jordan Duabe",
   "dependencies": {
     "@j4ckofalltrades/steam-webapi-ts": "^1.2.1",
-    "axios": "^1.11.0"
+    "axios": "^1.12.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.37.0",
