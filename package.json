@@ -11,9 +11,12 @@
   "author": "Jordan Duabe",
   "dependencies": {
     "@j4ckofalltrades/steam-webapi-ts": "^1.2.1",
-    "axios": "^1.12.1"
+    "@vercel/og": "^0.8.6",
+    "axios": "^1.12.1",
+    "react": "^19.2.4"
   },
   "devDependencies": {
+    "@types/react": "^19.2.10",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
     "dotenv": "^16.4.5",

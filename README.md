@@ -1,8 +1,8 @@
 # :video_game: Current game (on Steam)
 
-Display your current game on your website, blog, or GitHub README.  
+Display your current game on your website, blog, or GitHub README.
 
-The generated card (svg) includes your avatar, in-game name, and the title of the current game (if in-game). 
+The generated card (PNG image) includes your avatar, in-game name, and the title of the current game (if in-game).
 
 ![Steam Current Game](https://steam-current-game.vercel.app/api/?steamids=76561198311570174)
 
@@ -12,6 +12,18 @@ The generated card (svg) includes your avatar, in-game name, and the title of th
 2. Set `Game Details` to `Public` on your Steam profile (required for retrieving current game)
 3. Reference the following link in your markdown or HTML
 `https://steam-current-game.vercel.app/api/?steamids=<steamid>` replacing `<steamid>` with your own.
+
+The image is 368x368 pixels (2x resolution square format). Display as-is or scale:
+```html
+<!-- Native size (368x368) - crisp 2x rendering -->
+<img src="https://steam-current-game.vercel.app/api/?steamids=<steamid>" alt="Steam Status">
+
+<!-- Compact size (scales to 184x184) -->
+<img src="https://steam-current-game.vercel.app/api/?steamids=<steamid>" width="184" alt="Steam Status">
+
+<!-- Small size (scales to 128x128) -->
+<img src="https://steam-current-game.vercel.app/api/?steamids=<steamid>" width="128" alt="Steam Status">
+```
 
 ## Running locally
 

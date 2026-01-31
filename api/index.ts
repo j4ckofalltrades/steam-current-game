@@ -1,27 +1,26 @@
-import {VercelRequest, VercelResponse} from "@vercel/node"
-import currentGameCard, { errorCard } from "../src/currentGameCard"
-import { config } from "dotenv"
+import { VercelRequest, VercelResponse } from "@vercel/node"
+import { generateSteamCard, generateErrorCard } from "../src/steamCard"
 
-config()
-
-export default async (request: VercelRequest, response: VercelResponse): Promise<VercelResponse> => {
+export default async (request: VercelRequest, response: VercelResponse) => {
   const { steamids } = request.query
-  if (!steamids) {
-    return response
-      .status(500)
-  }
 
-  response.setHeader("Content-Type", "image/svg+xml")
+  response.setHeader("Content-Type", "image/png")
   response.setHeader("Cache-Control", "public, max-age=600")
 
+  if (!steamids) {
+    const errorImage = generateErrorCard()
+    const buffer = await errorImage.arrayBuffer()
+    return response.send(Buffer.from(buffer))
+  }
+
   try {
-    const card = await currentGameCard(Array.isArray(steamids) ? steamids : [steamids])
-    return response
-      .status(200)
-      .send(card)
+    const card = await generateSteamCard(Array.isArray(steamids) ? steamids : [steamids])
+    const buffer = await card.arrayBuffer()
+    return response.send(Buffer.from(buffer))
   } catch (e) {
-    return response
-      .status(200)
-      .send(errorCard)
+    console.error("Failed to generate Steam card:", e)
+    const errorImage = generateErrorCard()
+    const buffer = await errorImage.arrayBuffer()
+    return response.send(Buffer.from(buffer))
   }
 }
