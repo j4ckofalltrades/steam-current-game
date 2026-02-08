@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Display current game being played (via Steam)",
   "scripts": {
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
+    "lint": "biome check src/ api/",
+    "lint:fix": "biome check --write src/ api/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/j4ckofalltrades/steam-current-game",
@@ -16,25 +16,15 @@
     "react": "^19.2.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.14",
     "@types/react": "^19.2.10",
-    "@typescript-eslint/eslint-plugin": "^8.37.0",
-    "@typescript-eslint/parser": "^8.37.0",
     "dotenv": "^16.4.5",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^9.1.0",
     "lint-staged": "^15.2.2",
-    "prettier": "^3.6.2",
     "typescript": "^5.8.3"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "semi": false,
-    "trailingComma": "all"
   },
   "lint-staged": {
     "*.ts": [
-      "eslint --cache --fix",
-      "prettier --write src"
+      "biome check --write"
     ]
   }
 }

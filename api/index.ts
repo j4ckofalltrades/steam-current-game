@@ -1,5 +1,5 @@
-import { VercelRequest, VercelResponse } from "@vercel/node"
-import { generateSteamCard, generateErrorCard } from "../src/steamCard"
+import type { VercelRequest, VercelResponse } from "@vercel/node"
+import { generateErrorCard, generateSteamCard } from "../src/steamCard"
 
 export default async (request: VercelRequest, response: VercelResponse) => {
   const { steamids } = request.query
